@@ -1,0 +1,30 @@
+{
+  "name": "pnode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/su-rm-rf/pnode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/su-rm-rf/pnode/issues"
+  },
+  "homepage": "https://github.com/su-rm-rf/pnode#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "cluster": "^0.7.7",
+    "express": "^4.15.3",
+    "superagent": "^3.5.2",
+    "utility": "^1.12.0"
+  }
+}
