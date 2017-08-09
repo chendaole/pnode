@@ -1,8 +1,4 @@
-import path from 'path'
-import util from 'util'
-
 import express from 'express'
-import utility from 'utility'
 import superagent from 'superagent'
 import cheerio from 'cheerio'
 
@@ -11,21 +7,6 @@ const app = express()
 const router = express.Router()
 
 router.get('/', (req, res, next) => {
-  const q = req.query.q
-
-  if (q) {
-    const md5Value = utility.md5(q)
-    const sha1Value = utility.sha1(q)
-    res.send({
-      md5: md5Value,
-      sha1: sha1Value
-    })
-  } else {
-    res.send(`q should not be empty.`)
-  }
-})
-
-router.get('/cnode', (req, res, next) => {
   const host = `https://www.cnodejs.org`
 
   superagent.get(host)
@@ -59,8 +40,8 @@ router.get('/cnode', (req, res, next) => {
         value.map(item => {
           const $ = cheerio.load(item.text)
           rs.push({
-            title: $('.topic_full_title').text(),
-            comment1: $('.reply_item').eq(0).find('.reply_content').text()
+            title: $('.topic_full_title').text().replace(/\s/g, ''),
+            comment1: $('.reply_item').eq(0).find('.reply_content').text().replace(/\s/g, ''),
           })
         })
 
